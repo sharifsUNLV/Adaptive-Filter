@@ -29,14 +29,13 @@ data_length = length(data);
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 L=8;
 %lp = dsp.FIRFilter('Numerator', fir1(L-1,0.5)); % was 31
-mu = 5e-8; %step size
-%NLMS
-%LMS
+mu = 5e-6; %step size
 %SE LMS 5e-6~5e-7  2^(-22)reduced 50 and harmnoics drastically
 %SD LMS
 %SS LMS
-
-lmsfilt2 = dsp.LMSFilter(L,'StepSize',mu,'Method','LMS'); % one tab more than FIR filter
+%LMS
+%NLMS
+lmsfilt2 = dsp.LMSFilter(L,'StepSize',mu,'Method','Sign-Error LMS'); % one tab more than FIR filter
 % lmsfilt2.InitialConditions = ...
 %     [0.194906660034470;-0.245225671980735;-0.133470035721518;-0.113658915873864];
 
